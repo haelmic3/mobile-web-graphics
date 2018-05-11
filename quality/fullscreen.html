@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<style>
+body{margin:0;}
+canvas{display:block;width:100vw;height:100vh;}
+</style>
+</head>
+<body>
+<canvas>No canvas here!</canvas>
+<noscript>No, we will <b>not</b> serve you.</noscript>
+<script>
+"use strict";  // because why not!
+
+
+window.isMobile=/iphone|ipod|ipad|android|blackberry|opera mini|opera mobi|skyfire|\
+maemo|windows phone|palm|iemobile|symbian|symbianos|fennec/i.test(navigator.userAgent.toLowerCase());
+// produces a bool from a test on userAgent against a list of known mobiles
+
+
+// find the canvas
+var canvas = document.body.children[0];  // here it is!
+// if you add stuff you might need to change this but... this is fullscreen!
+
+
+onresize = resize_function = isMobile?function(){
+canvas.width = 2 * innerWidth;
+canvas.height = 2 * innerHeight;
+}:function(){
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+};resize_function();
+</script>
+</body>
+</html>
